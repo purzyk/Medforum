@@ -15,26 +15,41 @@ export default {
     ],
     data() {
         return {
+            videoFile: null,
+            intervalId: null,
+            isPlaying: false,
 
         }
     },
-
+    watch: {
+        isPlaying(isPlaying) {
+            if (this.intervalId !== null) {
+                clearInterval(this.intervalId);
+            }
+            if (isPlaying) {
+                const delta = 0.05;
+                this.intervalId = setInterval(() => {
+                    if (this.videoFile.currentTime >= this.videoFile.duration * (0.5 - delta)
+                        && this.videoFile.currentTime <= this.videoFile.duration * (0.5 + delta)) {
+                        console.log('middle')
+                    }
+                }, 1000);
+            }
+        }
+    },
     mounted: function () {
-        var videoFile = this.$refs.videoRef
-        videoFile.play()
+        this.videoFile = this.$refs.videoRef
+        this.videoFile.play()
+        this.isPlaying = true;
         console.log('start')
-        videoFile.onloadedmetadata = function () {
-            var delta = 0.05;
-            setInterval(function () {
-                if (videoFile.currentTime >= videoFile.duration * (0.5 - delta)
-                    && videoFile.currentTime <= videoFile.duration * (0.5 + delta)) {
-                    console.log('middle')
-                }
-            }, 1000);
-        };
-        videoFile.onended = function (e) {
+        this.videoFile.onended = function () {
             console.log('end')
+            this.isPlaying = false;
         };
+    },
+    beforeUnmount: function () {
+        clearInterval(this.intervalId);
+        this.isPlaying = false;
     },
 
 }
