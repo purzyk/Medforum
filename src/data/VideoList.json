@@ -1,0 +1,26 @@
+[
+  {
+    "id": 23,
+    "name": "Video file title 1",
+    "copy" : "This is the first item's accordion body.",
+    "link":"https://mfstorage.s3.eu-central-1.amazonaws.com/rekrutacja-2022/filmy/movie1.mp4"
+  },
+  {
+    "id": 24,
+    "name": "Video file title 2",
+    "copy" : "This is the second item's accordion body.",
+    "link":"https://mfstorage.s3.eu-central-1.amazonaws.com/rekrutacja-2022/filmy/movie2.mp4"
+  },
+  {
+    "id": 25,
+    "name": "Video file title 3",
+    "copy" : "This is the third item's accordion body.",
+    "link":"https://mfstorage.s3.eu-central-1.amazonaws.com/rekrutacja-2022/filmy/movie3.mp4"
+  },
+  {
+    "id": 26,
+    "name": "Video file title 4",
+    "copy" : "This is the fourth item's accordion body.",
+    "link":"https://mfstorage.s3.eu-central-1.amazonaws.com/rekrutacja-2022/filmy/movie4.mp4"
+  }
+]
